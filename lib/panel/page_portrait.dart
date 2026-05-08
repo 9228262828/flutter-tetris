@@ -17,13 +17,13 @@ class PagePortrait extends StatelessWidget {
 
     return SizedBox.expand(
       child: Container(
-        color: backgroundColor,
+       // color: backgroundColor,
         child: Padding(
           padding: MediaQuery.of(context).padding,
           child: Column(
             children: <Widget>[
               _TopBar(),
-              const Spacer(),
+            //  const Spacer(),
               _ScreenDecoration(child: Screen(width: screenW)),
               const Spacer(flex: 2),
               const GameController(),
