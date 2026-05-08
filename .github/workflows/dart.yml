@@ -1,36 +1,37 @@
-name: deploy
+name: Deploy to GitHub Pages
 
 on:
-  release:
-    types: [ published, edited ]
-  push: 
+  push:
     branches:
       - master
 
-jobs:
-  build:
+permissions:
+  contents: write
 
+jobs:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
+      - uses: actions/checkout@v4
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-      - run: flutter config --enable-web
-      - run: flutter pub get
 
-      - name: Build Web Project
-        run:  flutter build web --base-href '/flutter-tetris/'
+      - name: Get dependencies
+        run: flutter pub get
 
-      - name: Deploy web To GH-Page
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/web/
+      - name: Enable web
+        run: flutter config --enable-web
+
+      - name: Build Web
+        run: flutter build web --base-href '/flutter-tetris/'
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build/web/
