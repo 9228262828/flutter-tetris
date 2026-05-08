@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris App</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #9EAD81;
+      --primary-light: #636E51;
+      --accent: #00C9A7;
+      --bg: #1A1A2E;
+      --surface: #16213E;
+      --text: #FFFFFF;
+      --text-secondary: #B0AAFF;
+      --text-muted: #7A7A9D;
+      --border: #2A2A4A;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-arrow {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 24px;
+      color: var(--text-muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TETRIS</div>
+    <div class="tagline">Classic Block Puzzle</div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Legal Information</h2>
+      <p>Read our Privacy Policy and Terms &amp; Conditions to understand how we handle your data and the rules for using our app.</p>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="privacy.html">
+        <div class="card-icon">🛡️</div>
+        <h3>Privacy Policy</h3>
+        <p>How we handle your information, data storage, and your privacy rights.</p>
+        <span class="card-arrow">Read more →</span>
+      </a>
+      <a class="card" href="terms.html">
+        <div class="card-icon">📋</div>
+        <h3>Terms &amp; Conditions</h3>
+        <p>Rules of use, license terms, fair play guidelines, and legal disclaimers.</p>
+        <span class="card-arrow">Read more →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Tetris App &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms &amp; Conditions</a></p>
+  </footer>
+</body>
+</html>
