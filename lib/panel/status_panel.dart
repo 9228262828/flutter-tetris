@@ -6,6 +6,7 @@ import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/images.dart';
+import 'package:tetris/theme/app_theme.dart';
 
 class StatusPanel extends StatelessWidget {
   const StatusPanel({super.key});
@@ -13,32 +14,47 @@ class StatusPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(S.of(context).points,
-              style: const TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 4),
+          _StatusLabel(S.of(context).points),
+          const SizedBox(height: 2),
           Number(number: GameState.of(context).points),
-          const SizedBox(height: 10),
-          Text(S.of(context).cleans,
-              style: const TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
+          _StatusLabel(S.of(context).cleans),
+          const SizedBox(height: 2),
           Number(number: GameState.of(context).cleared),
-          const SizedBox(height: 10),
-          Text(S.of(context).level,
-              style: const TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
+          _StatusLabel(S.of(context).level),
+          const SizedBox(height: 2),
           Number(number: GameState.of(context).level),
-          const SizedBox(height: 10),
-          Text(S.of(context).next,
-              style: const TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          _StatusLabel(S.of(context).next),
           const SizedBox(height: 4),
           _NextBlock(),
           const Spacer(),
           _GameStatus(),
         ],
+      ),
+    );
+  }
+}
+
+class _StatusLabel extends StatelessWidget {
+  final String text;
+
+  const _StatusLabel(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text.toUpperCase(),
+      style: const TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 9,
+        color: kTextMuted,
+        letterSpacing: 0.8,
       ),
     );
   }
