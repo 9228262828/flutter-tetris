@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/material/briks.dart';
 import 'package:tetris/material/material.dart';
+import 'package:tetris/theme/app_theme.dart';
 import 'package:vector_math/vector_math_64.dart' as v;
 
 import 'player_panel.dart';
 import 'status_panel.dart';
 
-const Color screenBackground = Color(0xff9ead86);
+const Color screenBackground = kScreenBackground;
 
 /// screen H : W;
 class Screen extends StatelessWidget {

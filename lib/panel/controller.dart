@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
+import 'package:tetris/theme/app_theme.dart';
 
 class GameController extends StatelessWidget {
   const GameController({super.key});
@@ -22,9 +23,9 @@ class GameController extends StatelessWidget {
   }
 }
 
-const Size directionButtonSize = Size(48, 48);
+const Size directionButtonSize = Size(52, 52);
 
-const Size systemButtonSize = Size(28, 28);
+const Size systemButtonSize = Size(30, 30);
 
 const double directionSpace = 16;
 
@@ -54,6 +55,7 @@ class DirectionController extends StatelessWidget {
                         child: const Icon(
                           Icons.arrow_drop_up,
                           size: _iconSize,
+                          color: Colors.white70,
                         )),
                   ),
                   Transform.scale(
@@ -63,6 +65,7 @@ class DirectionController extends StatelessWidget {
                         child: const Icon(
                           Icons.arrow_right,
                           size: _iconSize,
+                          color: Colors.white70,
                         )),
                   ),
                 ],
@@ -77,6 +80,7 @@ class DirectionController extends StatelessWidget {
                         child: const Icon(
                           Icons.arrow_left,
                           size: _iconSize,
+                          color: Colors.white70,
                         )),
                   ),
                   Transform.scale(
@@ -86,6 +90,7 @@ class DirectionController extends StatelessWidget {
                         child: const Icon(
                           Icons.arrow_drop_down,
                           size: _iconSize,
+                          color: Colors.white70,
                         )),
                   ),
                 ],
@@ -144,8 +149,6 @@ class DirectionController extends StatelessWidget {
 }
 
 class SystemButtonGroup extends StatelessWidget {
-  static const _systemButtonColor = Color(0xFF2dc421);
-
   const SystemButtonGroup({super.key});
 
   @override
@@ -157,7 +160,7 @@ class SystemButtonGroup extends StatelessWidget {
           text: S.of(context).sounds,
           child: _Button(
               size: systemButtonSize,
-              color: _systemButtonColor,
+              color: kAccentColor,
               enableLongPress: false,
               onTap: () {
                 Game.of(context).soundSwitch();
@@ -167,7 +170,7 @@ class SystemButtonGroup extends StatelessWidget {
           text: S.of(context).pause_resume,
           child: _Button(
               size: systemButtonSize,
-              color: _systemButtonColor,
+              color: kPrimaryColor,
               enableLongPress: false,
               onTap: () {
                 Game.of(context).pauseOrResume();
@@ -178,7 +181,7 @@ class SystemButtonGroup extends StatelessWidget {
           child: _Button(
               size: systemButtonSize,
               enableLongPress: false,
-              color: Colors.red,
+              color: kDangerColor,
               onTap: () {
                 Game.of(context).reset();
               }),
@@ -198,6 +201,7 @@ class DropButton extends StatelessWidget {
       child: _Button(
           enableLongPress: false,
           size: const Size(90, 90),
+          color: kPrimaryColor,
           onTap: () {
             Game.of(context).drop();
           }),
@@ -229,7 +233,6 @@ class _Button extends StatefulWidget {
 
   final VoidCallback onTap;
 
-  ///the color of button
   final Color color;
 
   final bool enableLongPress;
@@ -237,7 +240,7 @@ class _Button extends StatefulWidget {
   const _Button({
     required this.size,
     required this.onTap,
-    this.color = Colors.blue,
+    this.color = kPrimaryColor,
     this.enableLongPress = true,
   });
 
@@ -247,7 +250,6 @@ class _Button extends StatefulWidget {
   }
 }
 
-///show a hint text for child widget
 class _Description extends StatelessWidget {
   final String text;
 
@@ -290,7 +292,12 @@ class _Description extends StatelessWidget {
         break;
     }
     return DefaultTextStyle(
-      style: const TextStyle(fontSize: 12, color: Colors.black),
+      style: const TextStyle(
+        fontSize: 11,
+        color: kTextMuted,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.5,
+      ),
       child: widget,
     );
   }
@@ -319,13 +326,14 @@ class _ButtonState extends State<_Button> {
   Widget build(BuildContext context) {
     return Material(
       color: _color,
-      elevation: 2,
+      elevation: 6,
+      shadowColor: _color.withValues(alpha: 0.5),
       shape: const CircleBorder(),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTapDown: (_) async {
           setState(() {
-            _color = widget.color.withOpacity(0.5);
+            _color = widget.color.withValues(alpha: 0.55);
           });
           if (_timer != null) {
             return;

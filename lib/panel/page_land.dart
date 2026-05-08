@@ -15,14 +15,44 @@ class PageLand extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Spacer(),
-                    SystemButtonGroup(),
-                    Spacer(),
                     Padding(
+                      padding: const EdgeInsets.only(top: 8, left: 12),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const SettingsScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 36,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            color: kSurfaceColor,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: kPrimaryColor.withValues(alpha: 0.4),
+                              width: 1,
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.settings_rounded,
+                            color: kPrimaryLight,
+                            size: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    const SystemButtonGroup(),
+                    const Spacer(),
+                    const Padding(
                       padding: EdgeInsets.only(left: 40, bottom: 40),
                       child: DropButton(),
                     )
