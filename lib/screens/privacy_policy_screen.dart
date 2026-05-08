@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tetris/theme/app_theme.dart';
+import 'package:tetris/widgets/app_image_banner.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
@@ -37,6 +38,8 @@ class _PolicyContent extends StatelessWidget {
           title: 'Privacy Policy',
           lastUpdated: 'Last updated: January 1, 2026',
         ),
+        SizedBox(height: 20),
+        AppImageBanner(),
         SizedBox(height: 24),
         _PolicySection(
           title: '1. Introduction',

@@ -4,6 +4,7 @@ import 'package:tetris/gamer/gamer.dart';
 import 'package:tetris/generated/l10n.dart';
 import 'package:tetris/material/audios.dart';
 import 'package:tetris/panel/page_portrait.dart';
+import 'package:tetris/screens/splash_screen.dart';
 import 'package:tetris/theme/app_theme.dart';
 
 import 'gamer/keyboard.dart';
@@ -44,8 +45,10 @@ class MainApp extends StatelessWidget {
       navigatorObservers: [routeObserver],
       supportedLocales: const [Locale('en')],
       theme: buildAppTheme(),
-      home: Scaffold(
-        body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
+      home: SplashScreen(
+        nextScreen: Scaffold(
+          body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
+        ),
       ),
     );
   }
