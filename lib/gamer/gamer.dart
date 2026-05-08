@@ -305,6 +305,7 @@ class GameControl extends State<Game> with RouteAware {
   void pause() {
     if (_states == GameStates.running) {
       _states = GameStates.paused;
+      _sound.pauseBgm();
     }
     setState(() {});
   }
@@ -327,6 +328,7 @@ class GameControl extends State<Game> with RouteAware {
       return;
     }
     _sound.start();
+    _sound.nextBgmTrack();
     _states = GameStates.reset;
     () async {
       int line = gamePadMatrixH;
@@ -364,6 +366,7 @@ class GameControl extends State<Game> with RouteAware {
     }
     _states = GameStates.running;
     _autoFall(true);
+    _sound.playBgm();
     setState(() {});
   }
 
@@ -391,6 +394,7 @@ class GameControl extends State<Game> with RouteAware {
   void soundSwitch() {
     setState(() {
       _sound.mute = !_sound.mute;
+      _sound.onMuteChanged();
     });
   }
 }
