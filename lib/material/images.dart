@@ -216,15 +216,11 @@ class _Material extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mat = GameMaterial.getMaterial(context);
+    if (mat == null) return SizedBox.fromSize(size: size);
     return CustomPaint(
-      foregroundPainter: _MaterialPainter(
-        srcOffset,
-        srcSize,
-        GameMaterial.getMaterial(context),
-      ),
-      child: SizedBox.fromSize(
-        size: size,
-      ),
+      foregroundPainter: _MaterialPainter(srcOffset, srcSize, mat),
+      child: SizedBox.fromSize(size: size),
     );
   }
 }

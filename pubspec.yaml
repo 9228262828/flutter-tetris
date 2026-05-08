@@ -23,6 +23,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/material.png
     - assets/audios/
     - assets/wechat.png
     - assets/icon.png
