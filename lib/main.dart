@@ -42,7 +42,7 @@ class MainApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate
       ],
       navigatorObservers: [routeObserver],
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales: const [Locale('en')],
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
