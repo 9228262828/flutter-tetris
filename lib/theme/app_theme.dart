@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 // Primary palette
-const Color kPrimaryColor = Color(0xFF6C63FF);
-const Color kPrimaryLight = Color(0xFF9C94FF);
-const Color kPrimaryDark = Color(0xFF4A42CC);
+const Color kPrimaryColor = Color(0xFF9EAD81);
+const Color kPrimaryLight = Color(0xFF636E51);
+const Color kPrimaryDark = Color(0xFF80985E);
 
 // Accent palette
 const Color kAccentColor = Color(0xFF00C9A7);
