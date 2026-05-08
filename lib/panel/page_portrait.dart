@@ -99,20 +99,18 @@ class _ScreenDecoration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: const Border(
+      decoration: const BoxDecoration(
+        border: Border(
           top: BorderSide(color: kScreenBorderShadow, width: screenBorderWidth),
           left: BorderSide(color: kScreenBorderShadow, width: screenBorderWidth),
-          right: BorderSide(color: kScreenBorderHighlight, width: screenBorderWidth),
-          bottom: BorderSide(color: kScreenBorderHighlight, width: screenBorderWidth),
+          right:
+              BorderSide(color: kScreenBorderHighlight, width: screenBorderWidth),
+          bottom:
+              BorderSide(color: kScreenBorderHighlight, width: screenBorderWidth),
         ),
-        borderRadius: BorderRadius.circular(4),
       ),
       child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black54),
-          borderRadius: BorderRadius.circular(3),
-        ),
+        decoration: BoxDecoration(border: Border.all(color: Colors.black54)),
         child: Container(
           padding: const EdgeInsets.all(3),
           color: kScreenBackground,
