@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tetris/theme/app_theme.dart';
 import 'package:tetris/widgets/app_image_banner.dart';
+import 'package:tetris/widgets/app_video_player.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
@@ -40,6 +41,8 @@ class _PolicyContent extends StatelessWidget {
         ),
         SizedBox(height: 20),
         AppImageBanner(),
+        SizedBox(height: 16),
+        AppVideoPlayer(assetPath: 'assets/policy_ved.mp4'),
         SizedBox(height: 24),
         _PolicySection(
           title: '1. Introduction',
