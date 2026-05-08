@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tetris/screens/privacy_policy_screen.dart';
 import 'package:tetris/screens/terms_screen.dart';
 import 'package:tetris/theme/app_theme.dart';
+import 'package:tetris/widgets/app_image_banner.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -23,6 +24,8 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const AppImageBanner(),
+            const SizedBox(height: 28),
             const _SectionHeader(title: 'Legal'),
             const SizedBox(height: 8),
             _SettingsCard(

@@ -23,10 +23,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/material.png
     - assets/audios/
-    - assets/alipay.jpg
     - assets/wechat.png
     - assets/icon.png
+    - assets/images.jpeg
+    - assets/images2.jpeg
+    - assets/13029774.png
 flutter_intl:
   enabled: true

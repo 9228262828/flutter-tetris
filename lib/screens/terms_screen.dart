@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tetris/theme/app_theme.dart';
+import 'package:tetris/widgets/app_image_banner.dart';
 
 class TermsScreen extends StatelessWidget {
   const TermsScreen({super.key});
@@ -37,6 +38,8 @@ class _TermsContent extends StatelessWidget {
           title: 'Terms & Conditions',
           lastUpdated: 'Last updated: January 1, 2026',
         ),
+        SizedBox(height: 20),
+        AppImageBanner(),
         SizedBox(height: 24),
         _TermsSection(
           title: '1. Acceptance of Terms',
